@@ -1,30 +1,26 @@
 #include "holberton.h"
-#include <stdio.h>
 
 /**
- * rot13 - encoder rot13
- * @s: pointer to string params
- *
- * Return: *s
- */
+  * print_number - print numbers chars
+  * @n: integer params
+  * Return: 0
+ **/
 
-char *rot13(char *s)
+void print_number(int n)
 {
-	int i;
-	int j;
-	char data1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char datarot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	unsigned int n1;
 
-	for (i = 0; s[i] != '\0'; i++)
+	n1 = n;
+
+	if (n < 0)
 	{
-		for (j = 0; j < 52; j++)
-		{
-			if (s[i] == data1[j])
-			{
-				s[i] = datarot[j];
-				break;
-			}
-		}
+		_putchar('-');
+		n1 = -n;
 	}
-	return (s);
+
+	if (n1 / 10 != 0)
+	{
+		print_number(n1 / 10);
+	}
+	_putchar((n1 % 10) + '0');
 }
